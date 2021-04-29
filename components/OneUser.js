@@ -4,7 +4,7 @@ import { Alert, Button, Text, View, StyleSheet, Image } from "react-native";
 export const OneUser = ({ item: {id, name, age, isMarried, city, street, number} }) => {
   return (
       <View style={styles.userCard}>
-        <Image source={}/>
+        {/*<Image source={}/>*/}
         <Text>{id}--{name}--{age}</Text>
         <Button
             title={'Open all info'}
