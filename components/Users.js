@@ -20,7 +20,6 @@ export const Users = ({users}) => {
 
 const styles = StyleSheet.create({
     usersList: {
-        backgroundColor: '#d99a9a',
         height: '100%'
     },
 });
