@@ -1,37 +1,29 @@
-import React, {useEffect, useState} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {Users} from "./components";
-import {getUsers} from "./src/api";
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import { Users, UserDetails } from "./components";
+import StackNavigator from "@react-navigation/stack/src/navigators/createStackNavigator";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
 export default function App() {
-    const [users, setUsers] = useState([]);
+  const StackNavigator = createStackNavigator()
 
-    const fetchData = async () => {
-        const users = await getUsers();
-        console.log(users)
-        setUsers(users);
-    }
-
-    useEffect(() => {
-        fetchData();
-    }, [])
-
-    return (
-        <View style={styles.container}>
-            {
-                users.length > 0
-                    ? <Users users={users}/>
-                    : <Text>Loading...</Text>
-            }
-        </View>
-    );
+  return (
+      <NavigationContainer>
+        <StackNavigator.Navigator>
+          <StackNavigator.Screen name={'Users'} component={Users}/>
+          <StackNavigator.Screen name={'UserDetails'} component={UserDetails}/>
+          {/*<StackNavigator.Screen name={'Posts'} component={Posts}/>*/}
+        </StackNavigator.Navigator>
+      </NavigationContainer>
+  );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        width: '100%',
-        height: '100%',
-        backgroundColor: '#d08080',
-        paddingTop: '6%'
-    },
+  container: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#d08080',
+    paddingTop: '6%'
+  },
 });
