@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import { OneUser } from "./OneUser";
-import { getUsers } from "../src/api";
+import { getUsers } from "../api";
 
-export const Users = ({navigation}) => {
+export const Users = ({ navigation }) => {
   const [users, setUsers] = useState([]);
 
   const fetchData = async () => {
@@ -24,7 +24,7 @@ export const Users = ({navigation}) => {
                   keyExtractor={item => item.id.toString()}
                   renderItem={({ item }) => <OneUser item={item} navigation={navigation}/>}
               />
-              : <Text>Loading...</Text>
+              : <Text style={styles.loading}>Loading...</Text>
         }
       </View>
   );
@@ -39,5 +39,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  loading: {
+    fontSize: 25
   }
 });
