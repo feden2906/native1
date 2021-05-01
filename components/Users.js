@@ -22,8 +22,7 @@ export const Users = ({navigation}) => {
               ? <FlatList
                   data={users}
                   keyExtractor={item => item.id.toString()}
-                  navigation={navigation}
-                  renderItem={({ item }) => <OneUser item={item}/>}
+                  renderItem={({ item }) => <OneUser item={item} navigation={navigation}/>}
               />
               : <Text>Loading...</Text>
         }
