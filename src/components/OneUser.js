@@ -1,7 +1,7 @@
 import React from "react";
 import {Button, StyleSheet, Text, View} from "react-native";
 
-export const OneUser = ({ navigation, item}) => {
+export const OneUser = ({ navigation, item }) => {
   const {id, name} = item;
     return (
         <View style={styles.userCard}>
